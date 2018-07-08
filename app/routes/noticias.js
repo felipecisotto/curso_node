@@ -1,5 +1,13 @@
-module.exports = function(app){
+//var dbConnection = require('../../config/bdConnection');
+//alterada para o consign
+module.exports = function (app) {
+    
     app.get('/noticias', function (req, resp) {
-        resp.render("noticias/noticias");
+        var connection = app.config.bdConnection();    
+        connection.query('select * from noticias', function (erro, result) {
+            resp.render("noticias/noticias", { noticias: result });
+        });
+
     });
 }
+  
