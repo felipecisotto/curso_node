@@ -8,9 +8,17 @@ var app = express();
 //Configuração do EJS
 app.set('view engine','ejs');
 app.set('views','./app/views');
+
+//Configurando arquivos estaticos no express
+app.use(express.static('./app/public'));
+
 //Configuração Body Parser
 app.use(bodyParser.urlencoded({extended:true}));
+//Configuração validator
 app.use(expressValidator());
+
+
+
 //Configuração Consign
 consign()
     .include('./app/routes')
