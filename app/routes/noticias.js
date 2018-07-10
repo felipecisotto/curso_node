@@ -3,11 +3,13 @@
 module.exports = function (app) {
 
     app.get('/noticias', function (req, resp) {
-        var connection = app.config.bdConnection();
-        var noticiasModel = app.app.models.noticiasModel;
-        noticiasModel.getNoticias(connection, function (erro, result) {
-            resp.render("noticias/noticias", { noticias: result });
-        });
+       
+        app.app.controllers.noticias.noticias(app,req,resp);
 
+    });
+    app.get('/noticia', function (req, resp) {
+
+        app.app.controllers.noticias.noticia(app,req,resp);
+       
     });
 }
