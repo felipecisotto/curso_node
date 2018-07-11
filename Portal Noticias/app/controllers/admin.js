@@ -14,6 +14,7 @@ module.exports.noticias_salvar = function (app,req,resp) {
     req.assert('autor', 'Autor é obrigatório').notEmpty();
     req.assert('data_noticia', 'Data é obrigatório').notEmpty();
     req.assert('noticia', 'Notícia é obrigatório').notEmpty();
+    var dateFormat = require('dateformat');
 
     var erros = req.validationErrors();
 
@@ -22,12 +23,11 @@ module.exports.noticias_salvar = function (app,req,resp) {
         return;
     }
     //Conexão
-    var connection = app.config.bdConnection();
+    //var connection = app.config.bdConnection;
     //model
-    var noticiaModel = new app.app.models.NoticiasDAO(connection);
+    var noticiaModel = new app.app.models.NoticiasDAO();
     //salvarNoticias
-    noticiaModel.salvarNoticia(noticia, function (erro, result) {
-        resp.redirect('/noticias');
-    });
+    noticiaModel.salvarNoticia(noticia);
+    resp.redirect('/noticias');
 
 }

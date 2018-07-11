@@ -56,11 +56,11 @@
 							<span class="noticia_autor">
 								<%=noticias[i].autor%>
 							</span>
-							<a href="/noticia?id_noticia=<%=noticias[i].id_noticia%> " class="noticia_titulo">
+							<a href="/noticia?id_noticia=<%=noticias[i]._id%> " class="noticia_titulo">
 								<%=noticias[i].titulo%>
 							</a>
 							<span class="noticia_data">
-								<%=noticias[i].data_noticia%>
+								<%=dateFormat(noticias[i].data_noticia,"fullDate")%>
 							</span>
 							<br />
 							<p class="noticia_resumo">

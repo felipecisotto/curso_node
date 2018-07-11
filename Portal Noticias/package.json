@@ -11,9 +11,12 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "consign": "^0.1.6",
+    "dateformat": "^3.0.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
+    "mongodb": "^3.1.1",
+    "mongoose": "^5.2.2",
     "mysql": "^2.15.0"
   }
 }

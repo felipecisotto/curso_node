@@ -10,7 +10,11 @@ var connMySQL = function () {
         insecureAuth: true
     });
 }
+
+
+
 module.exports = function () {
     console.log('O autoload carregou o banco');
-    return connMySQL;
+    //return connMySQL;
+    return null;
 }
